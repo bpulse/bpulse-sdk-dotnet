@@ -24,7 +24,6 @@ namespace bpulse_sdk_csharp.bpulseClient
         private static bool isStarted = false;
         private static readonly ILog logger = LogManager.GetLogger("bpulseLogger");
         private BpulseSender bpulseSender;
-        private IRepository pulseRepository;
         private string propDBMode;
         private static BPulseCsharpClient instance;
 
@@ -98,10 +97,8 @@ namespace bpulse_sdk_csharp.bpulseClient
             }
             catch (Exception ex)
             {
-
-                throw;
+                logger.Error("Error al iniciar el Cliente " + ex.Message);
             }
-
         }
 
         /// <summary>
@@ -157,42 +154,34 @@ namespace bpulse_sdk_csharp.bpulseClient
         /// <param name="listAttr">lista de atributo</param>
         /// <param name="isTrace"></param>
         /// <returns></returns>
-        private PulsesRQ rebuildValue(PulsesRQ pulse, List<AttributeDto> listAttr, bool isTrace)
+        private PulsesRQ rebuildValue(PulsesRQ pulse, List<AttributeDto> listLong, bool isTrace)
         {
-            if (listAttr == null || listAttr.Count == 0)
+            if (listLong == null || listLong.Count == 0)
             {
                 return pulse;
             }
-            var mapAttr = listAttrtoMap(listAttr);
+            //var mapAttr = listAttrtoMap(listAttr);
             var rqbuilder = pulse;
-
+            Dictionary<string, List<string>> mapAttr = listAttrtoMap(listLong);
             foreach (var pulseValue in rqbuilder.Pulse)
             {
                 //get the list of attributes from the map
+                if (!mapAttr.ContainsKey(pulseValue.TypeId))
+                    throw new Exception("El TypeId del pulso seleccionado no existe en la lista de pulsos de tipo Long");
 
                 var listAttributes = mapAttr[pulseValue.TypeId];
                 if (listAttributes != null && listAttributes.Count > 0)
                 {
 
-                    foreach (var value in pulseValue.Values)
+                    for (int i = 0; i < pulseValue.Values.Count; i++)
                     {
+                        var value = pulseValue.Values[i];
                         if (listAttributes.Contains(value.Name) && value.Values.Count > 0)
                         {
-                            //Build the new value
-                            if (isTrace)
+                            for (int j = 0; j < value.Values.Count; j++)
                             {
-                                try
-                                {
-                                    value.Values.Add(CompressUtil.compress(value.Values[0]));
-                                }
-                                catch (IOException e)
-                                {
-                                    continue;
-                                }
-                            }
-                            else
-                            {
-                                value.Values.Add(Convert.ToBase64String(Encoding.UTF8.GetBytes(value.Values[0])));
+                                var newValue= Convert.ToBase64String(Encoding.UTF8.GetBytes(value.Values[j]));
+                                value.Values[j] = newValue;
                             }
                         }
                     }
@@ -213,7 +202,7 @@ namespace bpulse_sdk_csharp.bpulseClient
             {
                 foreach (var attributeDto in listLong)
                 {
-                    map[attributeDto.TypeId] = attributeDto.ListAttr;
+                    map.Add(attributeDto.TypeId, attributeDto.ListAttr);
                 }
             }
             return map;
