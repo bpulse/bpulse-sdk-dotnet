@@ -41,9 +41,7 @@ namespace bpulse_sdk_csharp.timer
                 //obtain the current key list
                 IRepository pulsesRepository = _bpulseSender.getPulsesRepository();
                 object[] keys = pulsesRepository.getSortedbpulseRQMapKeys();
-
                 List<string> keyPulseListToDelete = new List<string>();
-
                 PulsesRQ summarizedPulsesRQToSend = null;
                 PulsesRQ pulses = new PulsesRQ();
                 int totalOfPulsesToSend = BPulsesConstants.COMMON_NUMBER_0;
@@ -107,6 +105,7 @@ namespace bpulse_sdk_csharp.timer
                             pulses.Pulse.Add(selectedPulsesRQ.Pulse);
                             totalOfPulsesToSend = totalPulsesOfCurrentKey;
                             keyPulseListToDelete.Add(keyPulse);
+
                         }
                     }
                 }

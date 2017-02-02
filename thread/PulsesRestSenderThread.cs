@@ -55,7 +55,6 @@ namespace bpulse_sdk_csharp.thread
             {
                 logger.Info("Enviado Exitosamente " + _PulsesRepository.getDBSize());
                 deletePulseKeysProcessedByRest();
-                Console.WriteLine("Quedan " + _PulsesRepository.getDBSize() + " en repositorio " + "y se han enviado " + _pulseToSendByRest.Pulse.Count);
             }
             else
             {

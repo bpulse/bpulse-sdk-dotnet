@@ -20,14 +20,8 @@ namespace bpulse_sdk_csharp.bpulseSender
         private string propDBMode;
         private long maxMemNumPulses;
         private IRepository pulsesRepository;
-        private int initGets;
-        private int summarizeGets;
-        private int totalOfProcessedPulses;
-        private int totalOfPulsesToSend;
-        private int init;
+
         PulsesRQ pulses = new PulsesRQ();
-        private int summarizedTime;
-        private PulsesRQ summarizedPulsesRQToSend;
 
         /// <summary>
         /// Constructor de la clase que incializa los parametros del App.config

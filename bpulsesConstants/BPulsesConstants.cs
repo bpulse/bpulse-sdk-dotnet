@@ -21,7 +21,7 @@ namespace bpulse_sdk_csharp.bpulsesConstants
         public const int COMMON_NUMBER_MINUS_5 = -5;
         public const int COMMON_NUMBER_180000 = 180000;
         public const int BPULSE_REST_HTTP_CREATED = 201;
-        public const long BPULSE_MAX_MEM_NUM_PULSES = 1000000L;
+        public const long BPULSE_MAX_MEM_NUM_PULSES = 600000L;
 
         public const String BPULSE_SUCCESSFUL_RESPONSE = "OK";
         public const string BPULSE_FAILED_RESPONSE = "ERROR";
