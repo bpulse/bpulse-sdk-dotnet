@@ -8,58 +8,62 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Timers;
 
 namespace bpulse_sdk_csharp
 {
     public class Program
     {
-        private InMemoryRepository MemRepository;
-
         public static void Main(string[] args)
         {
             testSendPulse();
         }
         public static void testSendPulse()
         {
-            Console.WriteLine("Construyendo el Pulso");
-
-
-
-
-            var numPulseToSend = BPulsesConstants.DEFAULT_TIMER_MAX_NUMBER_GROUPED_PULSES;
-            for (int i = 0; i < 750000; i++)
-            {
-
-
-
-                //var demoProcessedPulses = DemoProcessedPulses(pulses);
-                var demoPruebas = DemoPruebasCLientes();
-
-                //request = pulses;
-                //  request = demoPruebas;
-                //request = demoProcessedPulses;
-
-                // Console.WriteLine(request);
-                //Console.WriteLine("Enviando el pulso");
-                // BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
-                // client.SendPulse(request);
-            }
-
-
-            //bpulseSender.SendPulse(repository);
-
-
-            //client.SendPulseWithLong(request, attrdto);
-
+            Timer timer = new Timer();
+            timer.Interval = 80000;
+            timer.Elapsed += WavesofPulses;
+            timer.Start();
             Console.WriteLine("Done");
             Console.ReadLine();
         }
 
-        public static PulsesRQ DemoPruebasCLientes()
+        private static void WavesofPulses(object sender, ElapsedEventArgs e)
         {
-            PulsesRQ request;
+            for (int i = 0; i < 750000; i++)
+            {
+                PulsesRQ request;
 
-            PulsesRQ pulses = new PulsesRQ();
+                PulsesRQ pulses = new PulsesRQ();
+
+                //var demoProcessedPulses = DemoProcessedPulses(pulses);
+                var demoPruebas = DemoPruebasCLientes(pulses);
+
+                List<AttributeDto> attributedto = new List<AttributeDto>();
+                List<string> listAttrb = new List<string>();
+                listAttrb.Add("attrLong");
+                listAttrb.Add("newattrLong");
+                AttributeDto adto = new AttributeDto("bpulse_demo_PruebasClientes", listAttrb);
+
+                attributedto.Add(adto);
+
+                List<string> listAttrb2 = new List<string>();
+                listAttrb2.Add("Long");
+                listAttrb2.Add("newLong");
+                AttributeDto adto2 = new AttributeDto("bpulse_bpulse_processedPulses", listAttrb2);
+                attributedto.Add(adto2);
+
+                request = demoPruebas;
+                BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
+
+                client.SendPulseWithLong(pulses, attributedto);
+
+            }
+        }
+
+        public static PulsesRQ DemoPruebasCLientes(PulsesRQ pulses)
+        {
+
 
             pulses.Version = "0.1";
             Pulse pulse = new Pulse();
@@ -161,22 +165,6 @@ namespace bpulse_sdk_csharp
             pulse2.Values.Add(value2);
 
             pulses.Pulse.Add(pulse2);
-
-            BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
-            Dictionary<string, List<string>> attributedto = new Dictionary<string, List<string>>();
-            List<string> listAttrb = new List<string>();
-            listAttrb.Add("attrLong");
-            listAttrb.Add("newattrLong");
-
-            attributedto.Add("bpulse_demo_PruebasClientes", listAttrb);
-
-            List<string> listAttrb2 = new List<string>();
-            listAttrb2.Add("Long");
-            listAttrb2.Add("newLong");
-
-            attributedto.Add("bpulse_bpulse_processedPulses", listAttrb);
-
-            client.SendPulseWithLong(pulses, attributedto);
 
             return pulses;
 

@@ -26,7 +26,6 @@ namespace bpulse_sdk_csharp.rest
         public bool SendByRestService(string user, string pass, PulsesRQ pulse)
         {
             var url = ConfigurationManager.AppSettings[BPulsesConstants.BPULSE_PROPERTY_URL_REST_SERVICE];
-
             var basicAuth = Convert.ToBase64String(Encoding.UTF8.GetBytes(user + ":" + pass));
             byte[] data = pulse.ToByteArray();
 
