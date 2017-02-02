@@ -52,7 +52,7 @@ This is an example of a basic configuration file content:
     <add key="bpulse.client.pulsesRepositoryDBPath" value="/i4j/deploys/bpulse-client/"/>
     <add key="bpulse.client.pulsesRepositoryDBMaxSizeBytes" value="1073741824"/>
     <add key="bpulse.client.pulsesRepositoryMode" value="MEM"/>
-    <add key="bpulse.client.pulsesRepositoryMemMaxNumberPulses" value="1000000"/>
+    <add key="bpulse.client.pulsesRepositoryMemMaxNumberPulses" value="600000"/>
   </appSettings>
 </configuration>
 ```
