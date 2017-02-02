@@ -137,7 +137,7 @@ namespace bpulse_sdk_csharp.bpulseClient
         /// </summary>
         /// <param name="pulse">Pulso construido por el client</param>
         /// <param name="listLong">lista de atributos a ser convertido.</param>
-        public void SendPulseWithLong(PulsesRQ pulse, List<AttributeDto> listLong)
+        public void SendPulseWithLong(PulsesRQ pulse, Dictionary<string, List<string>> listLong)
         {
             if (isStarted)
             {
@@ -157,15 +157,15 @@ namespace bpulse_sdk_csharp.bpulseClient
         /// <param name="listAttr">lista de atributo</param>
         /// <param name="isTrace"></param>
         /// <returns></returns>
-        private PulsesRQ rebuildValue(PulsesRQ pulse,List<AttributeDto> listLong, bool isTrace)
+        private PulsesRQ rebuildValue(PulsesRQ pulse, Dictionary<string, List<string>> mapAttr, bool isTrace)
         {
-            if (listLong == null || listLong.Count == 0)
+            if (mapAttr == null || mapAttr.Count == 0)
             {
                 return pulse;
             }
             //var mapAttr = listAttrtoMap(listAttr);
             var rqbuilder = pulse;
-            Dictionary<string, List<string>> mapAttr = listAttrtoMap(listLong);
+
             foreach (var pulseValue in rqbuilder.Pulse)
             {
                 //get the list of attributes from the map
@@ -204,7 +204,7 @@ namespace bpulse_sdk_csharp.bpulseClient
             {
                 foreach (var attributeDto in listLong)
                 {
-                    map.Add(attributeDto.TypeId, attributeDto.ListAttr);
+                    map[attributeDto.TypeId] = attributeDto.ListAttr;
                 }
             }
             return map;

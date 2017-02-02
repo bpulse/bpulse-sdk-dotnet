@@ -117,15 +117,64 @@ namespace bpulse_sdk_csharp
 
             pulses.Pulse.Add(pulse);
 
-            BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
+            Pulse pulse2 = new Pulse();
+            pulse2.InstanceId = "1";
+            pulse2.TypeId = "bpulse_bpulse_processedPulses";
+            pulse2.Time = Calendar.EpochinMilis;
 
-            List<AttributeDto> attributedto = new List<AttributeDto>();
+            Value value2 = new Value();
+            value2.Name = "dateAttr";
+            value2.Values.Add("2017-01-23T00:01:25");
+            pulse2.Values.Add(value2);
+
+            value2 = new Value();
+            value2.Name = "numericAttr";
+            value2.Values.Add("1500");
+            pulse2.Values.Add(value2);
+
+            value2 = new Value();
+            value2.Name = "listStringAttr";
+            value2.Values.Add("Code01");
+            value2.Values.Add("Code02");
+            value2.Values.Add("Code03");
+
+            pulse2.Values.Add(value2);
+
+            value2 = new Value();
+            value2.Name = "client";
+            value2.Values.Add("client_dotnet_demo");
+            pulse2.Values.Add(value2);
+
+            value2 = new Value();
+            value2.Name = "stringAttr";
+            value2.Values.Add("gerardo");
+            pulse2.Values.Add(value2);
+
+            value2 = new Value();
+            value2.Name = ("Long");
+            value2.Values.Add("[ { \"_id\": \"576c0e769ae931f5\", \"index\": 0, \"product\": \"HT206\", \"isActive\": true, \"price\": \"221\" } ]");
+            pulse2.Values.Add(value2);
+
+            value2 = new Value();
+            value2.Name = ("newLong");
+            value2.Values.Add("[ { \"_id\": \"576c0e769ae931f5\", \"index\": 0, \"product\": \"HT206\", \"isActive\": true, \"price\": \"221\" } ]");
+            pulse2.Values.Add(value2);
+
+            pulses.Pulse.Add(pulse2);
+
+            BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
+            Dictionary<string, List<string>> attributedto = new Dictionary<string, List<string>>();
             List<string> listAttrb = new List<string>();
             listAttrb.Add("attrLong");
             listAttrb.Add("newattrLong");
-            AttributeDto adto = new AttributeDto("bpulse_demo_PruebasClientes", listAttrb);
 
-            attributedto.Add(adto);
+            attributedto.Add("bpulse_demo_PruebasClientes", listAttrb);
+
+            List<string> listAttrb2 = new List<string>();
+            listAttrb2.Add("Long");
+            listAttrb2.Add("newLong");
+
+            attributedto.Add("bpulse_bpulse_processedPulses", listAttrb);
 
             client.SendPulseWithLong(pulses, attributedto);
 
