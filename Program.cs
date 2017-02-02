@@ -1,8 +1,13 @@
 ﻿using bpulse_sdk_csharp.bpulseClient;
 using bpulse_sdk_csharp.bpulsesConstants;
+using bpulse_sdk_csharp.dto;
 using bpulse_sdk_csharp.pulseRepository;
 using me.bpulse.domain.proto.collector;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace bpulse_sdk_csharp
 {
@@ -18,31 +23,29 @@ namespace bpulse_sdk_csharp
         {
             Console.WriteLine("Construyendo el Pulso");
 
-          
-           
+
+
 
             var numPulseToSend = BPulsesConstants.DEFAULT_TIMER_MAX_NUMBER_GROUPED_PULSES;
             for (int i = 0; i < 750000; i++)
             {
-                //var demoPruebas = DemoPruebasCLientes(pulses);
-                PulsesRQ request;
 
-                PulsesRQ pulses = new PulsesRQ();
 
-                var demoProcessedPulses = DemoProcessedPulses(pulses);
+
+                //var demoProcessedPulses = DemoProcessedPulses(pulses);
+                var demoPruebas = DemoPruebasCLientes();
 
                 //request = pulses;
-               // request = demoPruebas;
-                 request = demoProcessedPulses;
+                //  request = demoPruebas;
+                //request = demoProcessedPulses;
 
                 // Console.WriteLine(request);
                 //Console.WriteLine("Enviando el pulso");
-                BPulseCsharpClient client = new BPulseCsharpClient();
-                client.SendPulse(request);
+                // BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
+                // client.SendPulse(request);
             }
-            InMemoryRepository mem = InMemoryRepository.GetInstance(1);
-            Console.WriteLine(mem.getDBSize());
-            
+
+
             //bpulseSender.SendPulse(repository);
 
 
@@ -52,15 +55,19 @@ namespace bpulse_sdk_csharp
             Console.ReadLine();
         }
 
-        public static PulsesRQ DemoPruebasCLientes(PulsesRQ pulses)
+        public static PulsesRQ DemoPruebasCLientes()
         {
+            PulsesRQ request;
+
+            PulsesRQ pulses = new PulsesRQ();
+
             pulses.Version = "0.1";
             Pulse pulse = new Pulse();
             pulse.InstanceId = "1";
             pulse.TypeId = "bpulse_demo_PruebasClientes";
 
-            
-          //  var epoch = Convert.ToInt64((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds);
+
+            //  var epoch = Convert.ToInt64((DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds);
             pulse.Time = Calendar.EpochinMilis;
 
             Value value = new Value();
@@ -92,23 +99,37 @@ namespace bpulse_sdk_csharp
             pulse.Values.Add(value);
 
             value = new Value();
-            value.Name=("attrLong");
+            value.Name = ("attrLong");
             value.Values.Add("[ { \"_id\": \"576c0e769ae931f5\", \"index\": 0, \"product\": \"HT206\", \"isActive\": true, \"price\": \"221\" } ]");
+            pulse.Values.Add(value);
 
+            value = new Value();
+            value.Name = ("attrLong");
+            value.Values.Add("[ { \"_id\": \"576c0e769ae931f5\", \"index\": 0, \"product\": \"HT206\", \"isActive\": true, \"price\": \"221\" } ]");
+            pulse.Values.Add(value);
 
+            value = new Value();
+            value.Name = ("newattrLong");
+            value.Values.Add("[ { \"_id\": \"576c0e769ae931f5\", \"index\": 0, \"product\": \"HT206\", \"isActive\": true, \"price\": \"221\" } ]");
+            pulse.Values.Add(value);
             //string json = """{ ""widget"":{ ""debug"":""on"",""window"":{ ""title"":""Sample Konfabulator Widget"",""name"":""main_window"",""width"":500,""height"":500},""image"":{ ""src"":""Images/Sun.png"",""name"":""sun1"",""hOffset"":250,""vOffset"":250,""alignment"":""center""},""text"":{ ""data':'Click Here','size':36,'style':'bold','name':'text1','hOffset':250,'vOffset':100,'alignment':'center','onMouseUp':'sun1.opacity = (sun1.opacity / 100) * 90;'} } }'";
-
-            //ArrayList AttributeDtoList = new ArrayList();
-
-            //AttributeDto adto = new AttributeDto("bpulse_client_hotelavail", "");
-
-            //AttributeDtoList.Add(adto);
 
 
             pulses.Pulse.Add(pulse);
+
+            BPulseCsharpClient client = new BPulseCsharpClient().GetInstance();
+
+            List<AttributeDto> attributedto = new List<AttributeDto>();
+            List<string> listAttrb = new List<string>();
+            listAttrb.Add("attrLong");
+            listAttrb.Add("newattrLong");
+            AttributeDto adto = new AttributeDto("bpulse_demo_PruebasClientes", listAttrb);
+
+            attributedto.Add(adto);
+
+            client.SendPulseWithLong(pulses, attributedto);
+
             return pulses;
-
-
 
         }
 

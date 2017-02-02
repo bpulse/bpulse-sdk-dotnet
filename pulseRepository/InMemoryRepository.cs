@@ -241,15 +241,6 @@ namespace bpulse_sdk_csharp.pulseRepository
             bpulseRQMap.Add(key, pPulsesRQ);
             insertedRecords++;
 
-            if (bpulseRQMap.Count == 1000)
-            {
-                var example = getBpulseRQByKey(key);
-                example = bpulseRQMap[key];
-                PulsesRQ pul = new PulsesRQ();
-                pul.Pulse.Add(example.Pulse);
-                Console.WriteLine("llegue a 1000");
-            }
-
             var epoch = Calendar.EpochinMilis;
 
             insertTimeMillisAverage = insertTimeMillisAverage + (epoch - initTime);
