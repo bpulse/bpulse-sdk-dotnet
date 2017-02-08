@@ -5,7 +5,7 @@ This README explains how to integrate the conector with the target client applic
 
 # Requirements
 
-* [bpulse-protobuf-donet](https://github.com/bpulse/bpulse-protobuf-donet)
+* [bpulse-protobuf-donet](https://github.com/bpulse/bpulse-protobuf-dotnet)
 * [NetFrameWork 4.5.2 +](https://www.microsoft.com/en-us/download/details.aspx?id=42642)
 
 # Build dependencies
