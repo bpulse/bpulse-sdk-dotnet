@@ -1,26 +1,29 @@
 ﻿using me.bpulse.domain.proto.collector;
-using System;
 
 namespace bpulse_sdk_csharp.pulseRepository
 {
     public interface IRepository
     {
+        #region Public Methods
+
+        int CountBpulsesRq();
+
+        int CountMarkBpulseKeyInProgress();
+
+        void DeleteBpulseRqByKey(string pKey);
+
+        PulsesRQ GetBpulseRqByKey(string pKey);
+
+        long GetDbSize();
+
+        object[] GetSortedbpulseRqMapKeys();
+
+        void MarkBpulseKeyInProgress(string pKey);
+
+        void ReleaseBpulseKeyInProgressByKey(string pKey);
+
         void SavePulse(PulsesRQ pPulsesRQ);
 
-        object[] getSortedbpulseRQMapKeys();
-
-        int countBpulsesRQ();
-
-        int countMarkBpulseKeyInProgress();
-
-        PulsesRQ getBpulseRQByKey(string pKey);
-
-        void deleteBpulseRQByKey(string pKey);
-
-        void markBpulseKeyInProgress(string pKey);
-
-        void releaseBpulseKeyInProgressByKey(string pKey);
-
-        long getDBSize();
+        #endregion Public Methods
     }
 }

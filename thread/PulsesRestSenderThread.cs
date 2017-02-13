@@ -1,82 +1,94 @@
-﻿using bpulse_sdk_csharp.pulseRepository;
+﻿using bpulse_sdk_csharp.bpulsesConstants;
+using bpulse_sdk_csharp.pulseRepository;
+using bpulse_sdk_csharp.rest;
 using log4net;
 using me.bpulse.domain.proto.collector;
-using System;
 using System.Collections.Generic;
-using bpulse_sdk_csharp.rest;
 using System.Configuration;
-using bpulse_sdk_csharp.bpulsesConstants;
 using System.Runtime.CompilerServices;
 
 namespace bpulse_sdk_csharp.thread
 {
     /// <summary>
-    /// clase que maneja el envio
+    ///      clase que maneja el envio
     /// </summary>
     public class PulsesRestSenderThread : ISyncService
     {
-        private PulsesRQ _pulseToSendByRest;
-        private IRepository _PulsesRepository;
-        private List<string> _keysToDelete;
-        private int _tableIndex;
-        private string _dbMode;
-        private string _username = ConfigurationManager.AppSettings[BPulsesConstants.BPULSE_PROPERTY_USER_CREDENTIALS_USERNAME];
-        private string _pass = ConfigurationManager.AppSettings[BPulsesConstants.BPULSE_PROPERTY_USER_CREDENTIALS_PASSWORD];
-
-        private static readonly ILog logger = LogManager.GetLogger("bpulseLogger");
+        #region Public Constructors
 
         /// <summary>
-        /// Constructor de la clase para iniciar el proceso de envio
+        ///      Constructor de la clase para iniciar el proceso de envio
         /// </summary>
         /// <param name="pulseToSendByRest">Pulso a enviar</param>
         /// <param name="pulseRepository">repositorio de pulsos</param>
         /// <param name="pKeysToDelete">lista de guid de los pulsos a eliminar</param>
-        /// <param name="tabindex"></param>
         /// <param name="dbMode">modo de bd por defecto MEMoria</param>
-        public PulsesRestSenderThread(PulsesRQ pulseToSendByRest, IRepository pulseRepository, List<string> pKeysToDelete, int tabindex, string dbMode)
+        public PulsesRestSenderThread(PulsesRQ pulseToSendByRest, IRepository pulseRepository,
+            List<string> pKeysToDelete, string dbMode)
         {
             _pulseToSendByRest = pulseToSendByRest;
-            _PulsesRepository = pulseRepository;
+            _pulsesRepository = pulseRepository;
             _keysToDelete = pKeysToDelete;
-            _tableIndex = tabindex;
             _dbMode = dbMode;
             Run();
         }
 
+        #endregion Public Constructors
+
+        #region Public Methods
+
         /// <summary>
-        /// Metodo que inicializa los procesos 
+        ///      Metodo que inicializa los procesos
         /// </summary>
         public void Run()
         {
-            RestInvoker sendByRestServices = new RestInvoker();
+            var sendByRestServices = new RestInvoker();
 
-            bool sended = sendByRestServices.SendByRestService(_username, _pass, _pulseToSendByRest);
+            var sended = sendByRestServices.SendByRestService(_username, _pass, _pulseToSendByRest);
             if (sended)
             {
-                logger.Info("Enviado Exitosamente " + _PulsesRepository.getDBSize());
-                deletePulseKeysProcessedByRest();
+                Logger.Info("Enviado Exitosamente " + _pulsesRepository.GetDbSize());
+                DeletePulseKeysProcessedByRest();
             }
             else
             {
-                logger.Error("Falla al Enviar " + _PulsesRepository.getDBSize() + "los siguientes pulsos ");
+                Logger.Error("Falla al Enviar " + _pulsesRepository.GetDbSize() + "los siguientes pulsos ");
             }
-
-
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         /// <summary>
-        ///  Metodo para eliminar los pulsos que ya han sido procesados del repositorio de pulsos en memoria.
+        ///      Metodo para eliminar los pulsos que ya han sido procesados del repositorio de pulsos
+        ///      en memoria.
         /// </summary>
         [MethodImpl(MethodImplOptions.Synchronized)]
-        private void deletePulseKeysProcessedByRest()
+        private void DeletePulseKeysProcessedByRest()
         {
-            if (_dbMode.Equals(BPulsesConstants.BPULSE_MEM_PULSES_REPOSITORY))
-            {
-                foreach (string keyToDelete in _keysToDelete)
-                {
-                    _PulsesRepository.deleteBpulseRQByKey(keyToDelete);
-                }
-            }
+            if (!_dbMode.Equals(BPulsesConstants.BPULSE_MEM_PULSES_REPOSITORY)) return;
+            foreach (var keyToDelete in _keysToDelete)
+                _pulsesRepository.DeleteBpulseRqByKey(keyToDelete);
         }
+
+        #endregion Private Methods
+
+        #region Private Fields
+
+        private static readonly ILog Logger = LogManager.GetLogger("bpulseLogger");
+        private readonly string _dbMode;
+        private readonly List<string> _keysToDelete;
+
+        private readonly string _pass =
+            ConfigurationManager.AppSettings[BPulsesConstants.BPULSE_PROPERTY_USER_CREDENTIALS_PASSWORD];
+
+        private readonly IRepository _pulsesRepository;
+        private readonly PulsesRQ _pulseToSendByRest;
+
+        private readonly string _username =
+            ConfigurationManager.AppSettings[BPulsesConstants.BPULSE_PROPERTY_USER_CREDENTIALS_USERNAME];
+
+        #endregion Private Fields
     }
 }

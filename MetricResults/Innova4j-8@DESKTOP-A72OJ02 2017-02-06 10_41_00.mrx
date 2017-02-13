@@ -1,0 +1,868 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="11">
+   <Targets>
+      <Target Name="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bin\Debug\bpulse-sdk-csharp.dll">
+         <Modules>
+            <Module Name="bpulse-sdk-csharp.dll" AssemblyVersion="1.0.0.0" FileVersion="1.0.0.0">
+               <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="76" />
+                  <Metric Name="CyclomaticComplexity" Value="137" />
+                  <Metric Name="ClassCoupling" Value="47" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="LinesOfCode" Value="469" />
+               </Metrics>
+               <Namespaces>
+                  <Namespace Name="bpulse_sdk_csharp">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="51" />
+                        <Metric Name="CyclomaticComplexity" Value="7" />
+                        <Metric Name="ClassCoupling" Value="15" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="131" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="Program">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="51" />
+                              <Metric Name="CyclomaticComplexity" Value="7" />
+                              <Metric Name="ClassCoupling" Value="15" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="131" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Main(string[]) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\Program.cs" Line="14">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="testSendPulse() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\Program.cs" Line="19">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="70" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="WavesofPulses(object, ElapsedEventArgs) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\Program.cs" Line="29">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="55" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="DemoPruebasCLientes(PulsesRQ) : PulsesRQ" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\Program.cs" Line="61">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="36" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="77" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="DemoProcessedPulses(PulsesRQ) : PulsesRQ" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\Program.cs" Line="164">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="48" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="8" />
+                                    <Metric Name="LinesOfCode" Value="29" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Program()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.timer">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="60" />
+                        <Metric Name="CyclomaticComplexity" Value="13" />
+                        <Metric Name="ClassCoupling" Value="10" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="58" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="BpulseRestSenderTimer">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="60" />
+                              <Metric Name="CyclomaticComplexity" Value="13" />
+                              <Metric Name="ClassCoupling" Value="10" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="58" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="BpulseRestSenderTimer(BpulseSender, string)" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\timer\BpulseRestSenderTimer.cs" Line="20">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="77" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Run() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\timer\BpulseRestSenderTimer.cs" Line="31">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="executeRestPulsesSending() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\timer\BpulseRestSenderTimer.cs" Line="39">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="40" />
+                                    <Metric Name="CyclomaticComplexity" Value="9" />
+                                    <Metric Name="ClassCoupling" Value="9" />
+                                    <Metric Name="LinesOfCode" Value="51" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="invokeBPulseRestService(BpulseSender, PulsesRQ, List&lt;string&gt;, int) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\timer\BpulseRestSenderTimer.cs" Line="132">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BpulseRestSenderTimer()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\timer\BpulseRestSenderTimer.cs" Line="18">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.thread">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="85" />
+                        <Metric Name="CyclomaticComplexity" Value="13" />
+                        <Metric Name="ClassCoupling" Value="12" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="31" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="BPulseSenderThread">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="84" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="6" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="10" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="BPulseSenderThread(PulsesRQ, IRepository)" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\BPulseSenderThread.cs" Line="22">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="77" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Run() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\BPulseSenderThread.cs" Line="33">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="77" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="sendPulseToRepository() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\BPulseSenderThread.cs" Line="48">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BPulseSenderThread()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\BPulseSenderThread.cs" Line="15">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="ISyncService">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="1" />
+                              <Metric Name="ClassCoupling" Value="0" />
+                              <Metric Name="DepthOfInheritance" Value="0" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="Run() : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="PulsesRestSenderThread">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="70" />
+                              <Metric Name="CyclomaticComplexity" Value="7" />
+                              <Metric Name="ClassCoupling" Value="11" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="21" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="PulsesRestSenderThread(PulsesRQ, IRepository, List&lt;string&gt;, int, string)" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\PulsesRestSenderThread.cs" Line="22">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="64" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Run() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\PulsesRestSenderThread.cs" Line="49">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="deletePulseKeysProcessedByRest() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\PulsesRestSenderThread.cs" Line="69">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="PulsesRestSenderThread()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\thread\PulsesRestSenderThread.cs" Line="25">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.rest">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="69" />
+                        <Metric Name="CyclomaticComplexity" Value="5" />
+                        <Metric Name="ClassCoupling" Value="12" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="16" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="RestInvoker">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="69" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="12" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="16" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="SendByRestService(string, string, PulsesRQ) : bool" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\rest\RestInvoker.cs" Line="27">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="56" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="11" />
+                                    <Metric Name="LinesOfCode" Value="14" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RestInvoker()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="RestInvoker()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\rest\RestInvoker.cs" Line="17">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.pulseRepository">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="84" />
+                        <Metric Name="CyclomaticComplexity" Value="32" />
+                        <Metric Name="ClassCoupling" Value="11" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="79" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="InMemoryRepository">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="68" />
+                              <Metric Name="CyclomaticComplexity" Value="23" />
+                              <Metric Name="ClassCoupling" Value="11" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="79" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="InMemoryRepository(int)" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="16">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="63" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="convertAllBpulseKeyInProgressToPending() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="45">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="75" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="countBpulsesRQ() : int" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="62">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="countMarkBpulseKeyInProgress() : int" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="71">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="deleteBpulseRQByKey(string) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="92">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getBpulseRQByKey(string) : PulsesRQ" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="114">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="64" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="9" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getDBSize() : long" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="135">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="86" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getSortedbpulseRQMapKeys() : object[]" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="145">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="57" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="7" />
+                                    <Metric Name="LinesOfCode" Value="14" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="GetInstance(int) : InMemoryRepository" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="177">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="77" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="markBpulseKeyInProgress(string) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="192">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="72" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="releaseBpulseKeyInProgressByKey(string) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="210">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="73" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SavePulse(PulsesRQ) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="228">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="68" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="6" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="InMemoryRepository()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\pulseRepository\InMemoryRepository.cs" Line="25">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="IRepository">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="9" />
+                              <Metric Name="ClassCoupling" Value="1" />
+                              <Metric Name="DepthOfInheritance" Value="0" />
+                              <Metric Name="LinesOfCode" Value="0" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="SavePulse(PulsesRQ) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getSortedbpulseRQMapKeys() : object[]">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="countBpulsesRQ() : int">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="countMarkBpulseKeyInProgress() : int">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getBpulseRQByKey(string) : PulsesRQ">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="deleteBpulseRQByKey(string) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="markBpulseKeyInProgress(string) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="releaseBpulseKeyInProgressByKey(string) : void">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getDBSize() : long">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="0" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.dto">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="78" />
+                        <Metric Name="CyclomaticComplexity" Value="15" />
+                        <Metric Name="ClassCoupling" Value="2" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="29" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="AttributeDto">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="78" />
+                              <Metric Name="CyclomaticComplexity" Value="15" />
+                              <Metric Name="ClassCoupling" Value="2" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="29" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="AttributeDto()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="16">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="AttributeDto(string, List&lt;string&gt;)" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="25">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="81" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="TypeId.get() : string" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="37">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="TypeId.set(string) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="41">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ListAttr.get() : List&lt;string&gt;" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="52">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="ListAttr.set(List&lt;string&gt;) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="56">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="95" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="GetHashCode() : int" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="66">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="74" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Equals(object) : bool" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\dto\AttributeDto.cs" Line="79">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="59" />
+                                    <Metric Name="CyclomaticComplexity" Value="7" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="15" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.compress">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="68" />
+                        <Metric Name="CyclomaticComplexity" Value="5" />
+                        <Metric Name="ClassCoupling" Value="5" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="13" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="CompressUtil">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="68" />
+                              <Metric Name="CyclomaticComplexity" Value="5" />
+                              <Metric Name="ClassCoupling" Value="5" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="13" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="compress(string) : string" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\compress\CompressUtil.cs" Line="16">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="59" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="12" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="CompressUtil()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.bpulseSender">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="66" />
+                        <Metric Name="CyclomaticComplexity" Value="14" />
+                        <Metric Name="ClassCoupling" Value="12" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="42" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="BpulseSender">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="66" />
+                              <Metric Name="CyclomaticComplexity" Value="14" />
+                              <Metric Name="ClassCoupling" Value="12" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="42" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="BpulseSender()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseSender\BpulseSender.cs" Line="24">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="54" />
+                                    <Metric Name="CyclomaticComplexity" Value="5" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="19" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="GetInstance() : BpulseSender" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseSender\BpulseSender.cs" Line="72">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="77" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SendPulse(PulsesRQ) : string" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseSender\BpulseSender.cs" Line="88">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="60" />
+                                    <Metric Name="CyclomaticComplexity" Value="3" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="11" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="executeBPulseRestService(PulsesRQ, List&lt;string&gt;, int, string) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseSender\BpulseSender.cs" Line="119">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="73" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="getPulsesRepository() : IRepository" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseSender\BpulseSender.cs" Line="135">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="91" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="1" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BpulseSender()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseSender\BpulseSender.cs" Line="18">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="84" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.bpulsesConstants">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="91" />
+                        <Metric Name="CyclomaticComplexity" Value="3" />
+                        <Metric Name="ClassCoupling" Value="3" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="5" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="BPulsesConstants">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="100" />
+                              <Metric Name="CyclomaticComplexity" Value="1" />
+                              <Metric Name="ClassCoupling" Value="0" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="1" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="BPulsesConstants()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                        <Type Name="Calendar">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="82" />
+                              <Metric Name="CyclomaticComplexity" Value="2" />
+                              <Metric Name="ClassCoupling" Value="3" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="4" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="EpochinMilis.get() : long" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulsesConstants\BPulsesConstants.cs" Line="60">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="76" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="3" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="Calendar()">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="100" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+                  <Namespace Name="bpulse_sdk_csharp.bpulseClient">
+                     <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="65" />
+                        <Metric Name="CyclomaticComplexity" Value="30" />
+                        <Metric Name="ClassCoupling" Value="23" />
+                        <Metric Name="DepthOfInheritance" Value="1" />
+                        <Metric Name="LinesOfCode" Value="65" />
+                     </Metrics>
+                     <Types>
+                        <Type Name="BPulseCsharpClient">
+                           <Metrics>
+                              <Metric Name="MaintainabilityIndex" Value="65" />
+                              <Metric Name="CyclomaticComplexity" Value="30" />
+                              <Metric Name="ClassCoupling" Value="23" />
+                              <Metric Name="DepthOfInheritance" Value="1" />
+                              <Metric Name="LinesOfCode" Value="65" />
+                           </Metrics>
+                           <Members>
+                              <Member Name="BPulseCsharpClient()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="30">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="69" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="8" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="GetInstance() : BPulseCsharpClient" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="51">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="77" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="0" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="start() : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="64">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="55" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="6" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BPulseRestSenderTask(object, ElapsedEventArgs) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="106">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="92" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="1" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SendPulse(PulsesRQ) : string" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="116">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="76" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="3" />
+                                    <Metric Name="LinesOfCode" Value="4" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="SendPulseWithLong(PulsesRQ, List&lt;AttributeDto&gt;) : void" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="133">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="73" />
+                                    <Metric Name="CyclomaticComplexity" Value="2" />
+                                    <Metric Name="ClassCoupling" Value="4" />
+                                    <Metric Name="LinesOfCode" Value="5" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="rebuildValue(PulsesRQ, List&lt;AttributeDto&gt;, bool) : PulsesRQ" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="153">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="52" />
+                                    <Metric Name="CyclomaticComplexity" Value="12" />
+                                    <Metric Name="ClassCoupling" Value="13" />
+                                    <Metric Name="LinesOfCode" Value="17" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="listAttrtoMap(List&lt;AttributeDto&gt;) : Dictionary&lt;string, List&lt;string&gt;&gt;" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="193">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="66" />
+                                    <Metric Name="CyclomaticComplexity" Value="4" />
+                                    <Metric Name="ClassCoupling" Value="5" />
+                                    <Metric Name="LinesOfCode" Value="7" />
+                                 </Metrics>
+                              </Member>
+                              <Member Name="BPulseCsharpClient()" File="C:\Users\Innova4j-8\Documents\Visual Studio 2015\Projects\bpulse_sdk_csharp\bpulseClient\BPulseCsharpClient.cs" Line="21">
+                                 <Metrics>
+                                    <Metric Name="MaintainabilityIndex" Value="84" />
+                                    <Metric Name="CyclomaticComplexity" Value="1" />
+                                    <Metric Name="ClassCoupling" Value="2" />
+                                    <Metric Name="LinesOfCode" Value="2" />
+                                 </Metrics>
+                              </Member>
+                           </Members>
+                        </Type>
+                     </Types>
+                  </Namespace>
+               </Namespaces>
+            </Module>
+         </Modules>
+      </Target>
+   </Targets>
+</CodeMetricsReport>

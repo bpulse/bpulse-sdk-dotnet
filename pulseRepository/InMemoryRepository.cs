@@ -1,221 +1,221 @@
-﻿using System;
+﻿using bpulse_sdk_csharp.bpulsesConstants;
+using log4net;
+using me.bpulse.domain.proto.collector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using me.bpulse.domain.proto.collector;
-using bpulse_sdk_csharp.bpulsesConstants;
-using log4net;
 using System.Runtime.CompilerServices;
 
 namespace bpulse_sdk_csharp.pulseRepository
 {
     /// <summary>
-    /// Clase que manejara el repositorio en memoria. y hereda de la interfaz IRepository.
+    ///      Clase que manejara el repositorio en memoria. y hereda de la interfaz IRepository.
     /// </summary>
     public class InMemoryRepository : IRepository
     {
-        private long getTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
-        private long deleteTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
-
-        private long insertTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
-        private int insertedRecords = BPulsesConstants.COMMON_NUMBER_0;
-        private long sortedKeysTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
-        private int limitNumberPulsesToReadFromDb = BPulsesConstants.COMMON_NUMBER_0;
-        private Dictionary<string, PulsesRQ> bpulseRQInProgressMap;
-        private Dictionary<string, PulsesRQ> bpulseRQMap = new Dictionary<string, PulsesRQ>();
-        private static readonly ILog logger = LogManager.GetLogger("bpulseLogger");
-        private static InMemoryRepository instance;
+        #region Public Constructors
 
         /// <summary>
-        /// Constructor del repositorio en memoria.
+        ///      Constructor del repositorio en memoria.
         /// </summary>
-        /// <param name="maxNumberPulsesToProcessByTimer">maximo de pulsos a procesar por tiempo.</param>
+        /// <param name="maxNumberPulsesToProcessByTimer">
+        ///      maximo de pulsos a procesar por tiempo.
+        /// </param>
         public InMemoryRepository(int maxNumberPulsesToProcessByTimer)
         {
-            limitNumberPulsesToReadFromDb = maxNumberPulsesToProcessByTimer;
+            _limitNumberPulsesToReadFromDb = maxNumberPulsesToProcessByTimer;
 
             bpulseRQInProgressMap = new Dictionary<string, PulsesRQ>();
 
-            convertAllBpulseKeyInProgressToPending();
+            ConvertAllBpulseKeyInProgressToPending();
         }
 
-        /// <summary>
-        /// metodo que convierte todas las claves en progreso a pendiente.
-        /// </summary>
-        public void convertAllBpulseKeyInProgressToPending()
-        {
-            try
-            {
-                bpulseRQInProgressMap.Clear();
+        #endregion Public Constructors
 
-            }
-            catch (Exception e)
-            {
-                logger.Error("FAILED TO MASSIVE UPDATE THE PULSES STATE FROM INPROGRESS TO PENDING: ", e);
-                throw e;
-            }
-        }
+        #region Private Fields
 
-        /// <summary>
-        /// conteo de los Pulsos
-        /// </summary>
-        /// <returns></returns>
-        public int countBpulsesRQ()
-        {
-            return 0;
-        }
+        private static readonly ILog Logger = LogManager.GetLogger("bpulseLogger");
+        private static InMemoryRepository _instance;
+        private readonly int _limitNumberPulsesToReadFromDb;
+        private readonly Dictionary<string, PulsesRQ> bpulseRQInProgressMap;
+        private readonly Dictionary<string, PulsesRQ> bpulseRQMap = new Dictionary<string, PulsesRQ>();
+        private long _deleteTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
+        private long _getTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
+        private int _insertedRecords = BPulsesConstants.COMMON_NUMBER_0;
+        private long _insertTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
+        private long _sortedKeysTimeMillisAverage = BPulsesConstants.COMMON_NUMBER_0;
+
+        #endregion Private Fields
+
+        #region Public Methods
 
         /// <summary>
-        /// cuenta los pulsos marcados como en progreso
-        /// </summary>
-        /// <returns></returns>
-        public int countMarkBpulseKeyInProgress()
-        {
-            int resp = BPulsesConstants.COMMON_NUMBER_0;
-            try
-            {
-
-                resp = bpulseRQInProgressMap.Count();
-
-            }
-            catch (Exception e)
-            {
-                logger.Error("FAILED TO GET PULSES INPROGRESS COUNT: ", e);
-                throw e;
-            }
-
-            return resp;
-
-        }
-
-        /// <summary>
-        /// elimina los pulsos por su GUID
-        /// </summary>
-        /// <param name="pKey">Id unico del pulso asociado</param>
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public void deleteBpulseRQByKey(string pKey)
-        {
-            long initTime = Calendar.EpochinMilis;
-            try
-            {
-                bpulseRQMap.Remove(pKey);
-                bpulseRQInProgressMap.Remove(pKey);
-                deleteTimeMillisAverage = this.deleteTimeMillisAverage + (Calendar.EpochinMilis - initTime);
-            }
-            catch (Exception e)
-            {
-                logger.Error("FAILED TO DELETE PULSE: ", e);
-                throw e;
-            }
-        }
-
-        /// <summary>
-        /// obtiene los pulsos por su clave unica dela asociado en memoria
-        /// </summary>
-        /// <param name="pKey">clave unica</param>
-        /// <returns>retorna el pulso</returns>
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public PulsesRQ getBpulseRQByKey(string pKey)
-        {
-            PulsesRQ resp = null;
-            long initTime = Calendar.EpochinMilis;
-            try
-            {
-                resp = bpulseRQMap[pKey];
-                getTimeMillisAverage = getTimeMillisAverage + (Calendar.EpochinMilis - initTime);
-
-            }
-            catch (Exception e)
-            {
-                logger.Error("FAILED TO GET THE PULSE BY KEY: ", e);
-                throw e;
-            }
-            return resp;
-        }
-
-        /// <summary>
-        /// obtiene la cantidad de pulsos almacenados en memoria
-        /// </summary>
-        /// <returns>retorna un entero con el numero de pulsos en memoria.</returns>
-        public long getDBSize()
-        {
-            return bpulseRQMap.Count();
-
-        }
-
-        /// <summary>
-        /// obtiene los pulsos ordenados. para su envio.
-        /// </summary>
-        /// <returns>retorna los pulsos.</returns>
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public object[] getSortedbpulseRQMapKeys()
-        {
-            long initTime = Calendar.EpochinMilis;
-            List<object> resp = new List<object>();
-            try
-            {
-                List<string> sortedKeys = new List<string>(bpulseRQMap.Keys);
-                sortedKeys.Sort();
-
-                int i = 0;
-                while (resp.Count() < limitNumberPulsesToReadFromDb && i < sortedKeys.Count())
-                {
-                    resp.Add(sortedKeys[i]);
-                    i++;
-                }
-
-                sortedKeysTimeMillisAverage = sortedKeysTimeMillisAverage + (Calendar.EpochinMilis - initTime);
-
-            }
-            catch (Exception e)
-            {
-                logger.Error("FAILED TO GET THE PENDING PULSES LIST: ", e);
-                throw e;
-            }
-
-
-            return resp.ToArray();
-        }
-
-        /// <summary>
-        /// intancia el repositorio.
+        ///      intancia el repositorio.
         /// </summary>
         /// <param name="currentMinute">minuto actual</param>
         /// <returns>retorna la instancia en el minuto actual.</returns>
         public static InMemoryRepository GetInstance(int currentMinute)
         {
-            if ((instance == null))
-            {
-                instance = new InMemoryRepository(currentMinute);
-            }
+            if (_instance == null)
+                _instance = new InMemoryRepository(currentMinute);
 
-            return instance;
+            return _instance;
         }
 
         /// <summary>
-        /// marca los pulsos almacenados en memoria en progreso.
+        ///      metodo que convierte todas las claves en progreso a pendiente.
         /// </summary>
-        /// <param name="pKey">id unico del pulso a pasar.</param>
-        [MethodImpl(MethodImplOptions.Synchronized)]
-        public void markBpulseKeyInProgress(string pKey)
+        public void ConvertAllBpulseKeyInProgressToPending()
         {
             try
             {
-                bpulseRQInProgressMap.Add(pKey, bpulseRQMap[pKey]);
-
+                bpulseRQInProgressMap.Clear();
             }
             catch (Exception e)
             {
-                logger.Error("FAILED TO UPDATE THE PULSE STATE FROM PENDING TO INPROGRESS: " + e);
+                Logger.Error("FAILED TO MASSIVE UPDATE THE PULSES STATE FROM INPROGRESS TO PENDING: ", e);
+                throw;
+            }
+        }
+
+        /// <summary>
+        ///      conteo de los Pulsos
+        /// </summary>
+        /// <returns></returns>
+        public int CountBpulsesRq()
+        {
+            return 0;
+        }
+
+        /// <summary>
+        ///      cuenta los pulsos marcados como en progreso
+        /// </summary>
+        /// <returns></returns>
+        public int CountMarkBpulseKeyInProgress()
+        {
+            var resp = BPulsesConstants.COMMON_NUMBER_0;
+            try
+            {
+                resp = bpulseRQInProgressMap.Count();
+            }
+            catch (Exception e)
+            {
+                Logger.Error("FAILED TO GET PULSES INPROGRESS COUNT: ", e);
+                throw;
+            }
+
+            return resp;
+        }
+
+        /// <summary>
+        ///      elimina los pulsos por su GUID
+        /// </summary>
+        /// <param name="pKey">Id unico del pulso asociado</param>
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void DeleteBpulseRqByKey(string pKey)
+        {
+            var initTime = Calendar.EpochinMilis;
+            try
+            {
+                bpulseRQMap.Remove(pKey);
+                bpulseRQInProgressMap.Remove(pKey);
+                _deleteTimeMillisAverage = _deleteTimeMillisAverage + (Calendar.EpochinMilis - initTime);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("FAILED TO DELETE PULSE: ", e);
                 throw e;
             }
         }
 
         /// <summary>
-        /// libera el repositorio de los pulsos en progreso por su clave.
+        ///      obtiene los pulsos por su clave unica dela asociado en memoria
+        /// </summary>
+        /// <param name="pKey">clave unica</param>
+        /// <returns>retorna el pulso</returns>
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public PulsesRQ GetBpulseRqByKey(string pKey)
+        {
+            PulsesRQ resp = null;
+            var initTime = Calendar.EpochinMilis;
+            try
+            {
+                resp = bpulseRQMap[pKey];
+                _getTimeMillisAverage = _getTimeMillisAverage + (Calendar.EpochinMilis - initTime);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("FAILED TO GET THE PULSE BY KEY: ", e);
+                throw e;
+            }
+            return resp;
+        }
+
+        /// <summary>
+        ///      obtiene la cantidad de pulsos almacenados en memoria
+        /// </summary>
+        /// <returns>retorna un entero con el numero de pulsos en memoria.</returns>
+        public long GetDbSize()
+        {
+            return bpulseRQMap.Count();
+        }
+
+        /// <summary>
+        ///      obtiene los pulsos ordenados. para su envio.
+        /// </summary>
+        /// <returns>retorna los pulsos.</returns>
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public object[] GetSortedbpulseRqMapKeys()
+        {
+            var initTime = Calendar.EpochinMilis;
+            var resp = new List<object>();
+            try
+            {
+                var sortedKeys = new List<string>(bpulseRQMap.Keys);
+                sortedKeys.Sort();
+
+                var i = 0;
+                while (resp.Count() < _limitNumberPulsesToReadFromDb && i < sortedKeys.Count())
+                {
+                    resp.Add(sortedKeys[i]);
+                    i++;
+                }
+
+                _sortedKeysTimeMillisAverage = _sortedKeysTimeMillisAverage + (Calendar.EpochinMilis - initTime);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("FAILED TO GET THE PENDING PULSES LIST: ", e);
+                throw e;
+            }
+
+            return resp.ToArray();
+        }
+
+        /// <summary>
+        ///      marca los pulsos almacenados en memoria en progreso.
+        /// </summary>
+        /// <param name="pKey">id unico del pulso a pasar.</param>
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public void MarkBpulseKeyInProgress(string pKey)
+        {
+            try
+            {
+                bpulseRQInProgressMap.Add(pKey, bpulseRQMap[pKey]);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("FAILED TO UPDATE THE PULSE STATE FROM PENDING TO INPROGRESS: " + e);
+                throw e;
+            }
+        }
+
+        /// <summary>
+        ///      libera el repositorio de los pulsos en progreso por su clave.
         /// </summary>
         /// <param name="pKey">guid del pulso almacenado en el repositorio de datos.</param>
         [MethodImpl(MethodImplOptions.Synchronized)]
-        public void releaseBpulseKeyInProgressByKey(string pKey)
+        public void ReleaseBpulseKeyInProgressByKey(string pKey)
         {
             try
             {
@@ -223,27 +223,29 @@ namespace bpulse_sdk_csharp.pulseRepository
             }
             catch (Exception e)
             {
-                logger.Error("FAILED TO UPDATE THE PULSE STATE FROM INPROGRESS TO PENDING: " + e);
+                Logger.Error("FAILED TO UPDATE THE PULSE STATE FROM INPROGRESS TO PENDING: " + e);
                 throw e;
             }
         }
 
         /// <summary>
-        /// guardar el pulso en memoria, en un Dictionary
+        ///      guardar el pulso en memoria, en un Dictionary
         /// </summary>
         /// <param name="pPulsesRQ">Pulso</param>
         [MethodImpl(MethodImplOptions.Synchronized)]
         public void SavePulse(PulsesRQ pPulsesRQ)
         {
             var initTime = Calendar.EpochinMilis;
-            string key = Guid.NewGuid().ToString();
+            var key = Guid.NewGuid().ToString();
 
             bpulseRQMap.Add(key, pPulsesRQ);
-            insertedRecords++;
+            _insertedRecords++;
 
             var epoch = Calendar.EpochinMilis;
 
-            insertTimeMillisAverage = insertTimeMillisAverage + (epoch - initTime);
+            _insertTimeMillisAverage = _insertTimeMillisAverage + (epoch - initTime);
         }
+
+        #endregion Public Methods
     }
 }

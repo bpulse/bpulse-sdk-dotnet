@@ -10,14 +10,20 @@ using System.Text;
 namespace bpulse_sdk_csharp.rest
 {
     /// <summary>
-    /// clase para invocar el servicio Rest
+    ///      clase para invocar el servicio Rest
     /// </summary>
     public class RestInvoker
     {
-        private static readonly ILog logger = LogManager.GetLogger("bpulseLogger");
+        #region Private Fields
+
+        private static readonly ILog Logger = LogManager.GetLogger("bpulseLogger");
+
+        #endregion Private Fields
+
+        #region Public Methods
 
         /// <summary>
-        /// Metodo para enviar los pulsos al serivico rest
+        ///      Metodo para enviar los pulsos al serivico rest
         /// </summary>
         /// <param name="user">usuario configurado en app.config</param>
         /// <param name="pass">password configurado en app.config</param>
@@ -27,9 +33,10 @@ namespace bpulse_sdk_csharp.rest
         {
             var url = ConfigurationManager.AppSettings[BPulsesConstants.BPULSE_PROPERTY_URL_REST_SERVICE];
             var basicAuth = Convert.ToBase64String(Encoding.UTF8.GetBytes(user + ":" + pass));
-            byte[] data = pulse.ToByteArray();
+            var data = pulse.ToByteArray();
 
             #region metodo actual que funciona
+
             using (var client = new WebClient())
             {
                 // Request configuration
@@ -42,17 +49,21 @@ namespace bpulse_sdk_csharp.rest
                 {
                     var response = client.UploadData(url, data);
 
-                    var stringResponse = client.Encoding.GetString(response); // TODO  Probar que esto devuelva algo legible 
+                    var stringResponse = client.Encoding.GetString(response);
+                    // TODO Probar que esto devuelva algo legible
 
                     return true;
                 }
                 catch (Exception e)
                 {
-                    logger.Error(e.Message);
+                    Logger.Error(e.Message);
                     return false;
                 }
             }
-            #endregion
+
+            #endregion metodo actual que funciona
         }
+
+        #endregion Public Methods
     }
 }
